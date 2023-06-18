@@ -1,3 +1,125 @@
-#header {
-    color: red;
+#root {
+  font-family: sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+
+.logo {
+  width: auto;
+  height: 70px;
+}
+.nav-items {
+  font-size: 18px;
+}
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 10px;
+}
+.logo-container {
+  padding: 10px;
+}
+
+.res-card {
+  width: 250px;
+  height: 300px;
+  padding: 10px;
+  margin: 5px;
+
+  padding: 20px 20px 10px;
+  border: 1px solid #fff;
+  contain: content;
+}
+
+.res-card:hover {
+  border: 1px solid #d3d5df;
+  box-shadow: 0 4px 7px 0 rgba(218, 220, 230, 0.6);
+  cursor: pointer;
+}
+.search {
+  padding: 10px;
+}
+
+.res-logo {
+  width: 100%;
+}
+
+.res-cuisine {
+  color: #686b78;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.res-props {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 12px;
+}
+.star-rating {
+  width: 43px;
+  height: 20px;
+  background-color: #48c479;
+  color: white;
+  padding: 0 5px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 2px;
+}
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 250px;
+  height: 300px;
+  padding: 10px;
+  margin: 5px;
+
+  padding: 20px 20px 10px;
+  border: 1px solid #fff;
+  contain: content;
+  background-color: rgb(240, 240, 240);
+}
+
+.res-menu-logo {
+  width: auto;
+  height: 100px;
+}
+.items-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-card {
+  width: 200px;
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+
+  padding: 20px 20px 10px;
+  border: 1px solid #fff;
+  contain: content;
+  text-align: center;
+}
+
+.item-image {
+  height: 150px;
 }
