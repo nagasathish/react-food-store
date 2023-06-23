@@ -11,7 +11,7 @@ const RestaurantCard = (props) => {
   } = props.resData.data;
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img className="res-logo" src={CLOUDINARY_URL + cloudinaryImageId} />
+      {cloudinaryImageId ? <img className="res-logo" src={CLOUDINARY_URL + cloudinaryImageId} /> : ''}
       <h3>{name}</h3>
       <div className="res-cuisine">{cuisines.join(", ")}</div>
       <div className="res-props">
