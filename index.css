@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 #root {
   font-family: sans-serif;
 }
@@ -69,7 +72,7 @@
   height: 20px;
   background-color: #48c479;
   color: white;
-  padding: 0 5px;
+  /* padding: 0 5px; */
   font-weight: 400;
   font-size: 14px;
 }

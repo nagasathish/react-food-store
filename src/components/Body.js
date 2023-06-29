@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import restInfo from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import { DATA_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
@@ -49,14 +48,15 @@ const Body = () => {
   };
   return (
     <div className="body">
-      <div className="search">
+      <div className="flex flex-auto m-5">
+      <div className="">
         <input
           type="text"
-          className="search-box"
+          className="border border-solid border-black"
           value={searchString}
           onChange={($event) => setSearchString($event.target.value)}
         />
-        <button
+        <button className="px-6 py-1 bg-orange-400 ml-2"
           onClick={() => {
             onTitleSearch();
           }}
@@ -64,12 +64,15 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="filter">
-        <button className="filter-btn" onClick={() => filterTopRestaurants()}>
+      <div className="ml-5">
+        <span>Filters: </span>
+        <button className="px-6 py-1 bg-orange-300" onClick={() => filterTopRestaurants()}>
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
+      </div>
+      
+      <div className="flex flex-wrap">
         {filteredRestaurants.length === 0 ? (
           <Shimmer />
         ) : (
