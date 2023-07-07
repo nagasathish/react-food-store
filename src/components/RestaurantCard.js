@@ -10,6 +10,7 @@ const RestaurantCard = (props) => {
     costForTwo,
     area
   } = props.resData.data;
+  const locationData = props.locationData?.location;
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
       {cloudinaryImageId ? <img className="w-[100%]" src={CLOUDINARY_URL + cloudinaryImageId} /> : ''}

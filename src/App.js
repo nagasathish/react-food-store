@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,17 +7,33 @@ import AboutUs from "./components/AboutUs";
 // import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Instamart from "./components/Instamart";
+import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
+  const [user, setUser] = useState({name: 'Test User', email: 'test@gmail.com'})
   return (
     <div className="app">
-      <Header />
-      <Outlet />
+      <Provider store={store}>
+        <UserContext.Provider
+          value={{
+            user: user,
+            setUser: setUser,
+          }}
+        >
+          <Header />
+          <Outlet />
+        </UserContext.Provider>
+      </Provider>
     </div>
   );
 };
 
-const ContactUsLazy = lazy(() => import('./components/ContactUs'));
+const ContactUsLazy = lazy(() => import("./components/ContactUs"));
+// const [locationData, setLocationData] = useState();
 
 const appRouter = createBrowserRouter([
   {
@@ -26,7 +42,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: <Body locationData={{ location: "Hyderabad" }} />,
       },
       {
         path: "/about-us",
@@ -34,11 +50,23 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/contact-us",
-        element: <Suspense><ContactUsLazy /></Suspense>, // Lazy Loading
+        element: (
+          <Suspense>
+            <ContactUsLazy />
+          </Suspense>
+        ), // Lazy Loading
       },
       {
         path: "/restaurant/:id",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/instamart",
+        element: <Instamart />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

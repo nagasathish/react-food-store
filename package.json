@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/nagasathish/react-food-store#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "parcel": "^2.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.13.0"
   },
   "devDependencies": {

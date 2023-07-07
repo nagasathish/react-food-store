@@ -4,7 +4,7 @@ import { DATA_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
-const Body = () => {
+const Body = ({locationData}) => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchString, setSearchString] = useState("");
@@ -81,7 +81,7 @@ const Body = () => {
               key={restaurant.data.id}
               to={"/restaurant/" + restaurant.data.id}
             >
-              <RestaurantCard resData={restaurant} />
+              <RestaurantCard resData={restaurant} locationData = {locationData} />
             </Link>
           ))
         )}
