@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import Logo from "../assets/images/swiggy-logo.png";
 
 const Header = () => {
   let [buttonName, setButtonName] = useState("Login");
@@ -16,7 +17,7 @@ const Header = () => {
       <div className="flex justify-between items-center">
         <div className="p-10">
           <Link to="/">
-            <img className="w-auto h-16" src={LOGO_URL} />
+            <img className="w-auto h-16" data-testid="logo" src={Logo} />
           </Link>
         </div>
         <div className="flex items-center">
@@ -36,11 +37,12 @@ const Header = () => {
             <li
               className="px-4"
               style={{ color: onlineStatus ? "green" : "red" }}
+              data-testid = "onlinestatus"
             >
               <b>{onlineStatus ? "Online" : "Offline"}</b>
             </li>
             <li className="px-4">
-              <Link to="/cart">Cart - {cartItems.length}</Link>
+              <Link to="/cart" data-testid="cart">Cart - {cartItems.length}</Link>
             </li>
             <button
               className="login"
